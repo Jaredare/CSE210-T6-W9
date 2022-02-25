@@ -1,2 +1,3 @@
 0.001: Created the repo.
 0.002: Made the changelog and plan files.
+0.003: Put the snake game in the folder for reference.
