@@ -32,3 +32,16 @@ The program must remain true to game play described in the overview.
 
 How Snake works:
     
+
+
+
+Things we need to do:
+    To change our Cycle game from Snake into a Cycle game: 
+        We'll need a second snake.
+            We'll need the second snake to have different keys associated with moving.
+            We'll need to change the colors of the snakes.
+        We'll need to make the snakes grow according to time or distance rather than by collecting fruit.
+        We'll need to make sure that a player can die to their opponent's tail.
+        Game over is already incorporated. The base snake turns white.
+
+        We currently have 18/16 classes.
