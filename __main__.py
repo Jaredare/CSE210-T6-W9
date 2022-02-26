@@ -20,7 +20,12 @@ def main():
     
     # create the cast
     cast = Cast()
-    cast.add_actor("foods", Food())
+    # cast.add_actor("foods", Food())
+    # cast.add_actor("snakes", Snake())
+    # cast.add_actor("red cycle", Snake())
+    # cast.add_actor("blue cycle", Snake())
+
+    cast.add_actor("snakes", Snake())
     cast.add_actor("snakes", Snake())
     cast.add_actor("scores", Score())
    
@@ -40,3 +45,17 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+
+
+# # cast.add_actor("cycles", Snake())
+# # cast.add_actor("cycles", Snake())
+
+# #-----
+
+# cycles = cast.get_all_actors("cycles")
+
+# red_cycle = cycles[0]
+# blue_cycle = cycles[1]
+

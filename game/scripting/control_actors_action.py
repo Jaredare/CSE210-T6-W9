@@ -20,7 +20,8 @@ class ControlActorsAction(Action):
             keyboard_service (KeyboardService): An instance of KeyboardService.
         """
         self._keyboard_service = keyboard_service
-        self._direction = Point(constants.CELL_SIZE, 0)
+        self._red_direction = Point(constants.CELL_SIZE, 0)
+        self._blue_direction = Point(constants.CELL_SIZE, 0)
 
     def execute(self, cast, script):
         """Executes the control actors action.
@@ -29,21 +30,46 @@ class ControlActorsAction(Action):
             cast (Cast): The cast of Actors in the game.
             script (Script): The script of Actions in the game.
         """
+
+        cycles = cast.get_actors("snakes")
+
+        red_cycle = cycles[0]
+        blue_cycle = cycles[1]
+
         # left
         if self._keyboard_service.is_key_down('a'):
-            self._direction = Point(-constants.CELL_SIZE, 0)
+            self._red_direction = Point(-constants.CELL_SIZE, 0)
         
         # right
         if self._keyboard_service.is_key_down('d'):
-            self._direction = Point(constants.CELL_SIZE, 0)
+            self._red_direction = Point(constants.CELL_SIZE, 0)
         
         # up
         if self._keyboard_service.is_key_down('w'):
-            self._direction = Point(0, -constants.CELL_SIZE)
+            self._red_direction = Point(0, -constants.CELL_SIZE)
         
         # down
         if self._keyboard_service.is_key_down('s'):
-            self._direction = Point(0, constants.CELL_SIZE)
+            self._red_direction = Point(0, constants.CELL_SIZE)
         
-        snake = cast.get_first_actor("snakes")
-        snake.turn_head(self._direction)
+        # red_cycle = cast.get_first_actor("red cycle")
+        red_cycle.turn_head(self._red_direction)
+
+        # left
+        if self._keyboard_service.is_key_down('j'):
+            self._blue_direction = Point(-constants.CELL_SIZE, 0)
+        
+        # right
+        if self._keyboard_service.is_key_down('l'):
+            self._blue_direction = Point(constants.CELL_SIZE, 0)
+        
+        # up
+        if self._keyboard_service.is_key_down('i'):
+            self._blue_direction = Point(0, -constants.CELL_SIZE)
+        
+        # down
+        if self._keyboard_service.is_key_down('k'):
+            self._blue_direction = Point(0, constants.CELL_SIZE)
+        
+        # blue_cycle = cast.get_first_actor("blue cycle")
+        blue_cycle.turn_head(self._blue_direction)
