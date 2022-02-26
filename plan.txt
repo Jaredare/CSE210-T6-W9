@@ -37,12 +37,18 @@ How Snake works:
 
 Things we need to do:
     To change our Cycle game from Snake into a Cycle game: 
-        We'll need a second cycle. (medium-hard) WIP
-            We'll need the second cycle to have different keys associated with moving. (probably easy) Hopefully done
+        We'll need a second cycle. (Added v0.005-0.006) Still kind of WIP
+            We'll need the second cycle to have different keys associated with moving. (Finished v0.005)
             We'll need to change the colors of the cycles. (easy)
+            We need to enable collision for the second cycle.
+            We need to change the color for the second cycle on game over.
+            We need to change the starting position of the second cycle to the other side of the screen.
+
+            It would be good to have the cycles start going up and or down. 
+
         We'll need to make the cycles grow according to time or distance rather than by collecting fruit. (medium)
         We'll need to make sure that a player can die to their opponent's tail. (hopefully easy)
-        Game over is already incorporated. The base cycle turns white. (done)
+        Game over is already incorporated. The base cycle turns white. The second cycle doesn't turn white. (Mostly done)
 
         Do we need to change the score to either display for both players, or not exist?
 

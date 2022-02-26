@@ -4,4 +4,5 @@
 0.004: Added a list of things we need to do to the plan, copied the game out of the snake file for use and editing.
 0.005: Started making the second snake. Removed most/all things to do with food, 
         and coded what was supposed to be a second snake as seen in __main__.py line 29 and 
-        control_actors_actions.py lines 34-37 and 58-75
+        control_actors_actions.py lines 34-37 and 58-75.
+0.006: Added visualization for the second cycle. 
