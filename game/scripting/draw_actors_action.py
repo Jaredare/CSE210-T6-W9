@@ -28,7 +28,7 @@ class DrawActorsAction(Action):
         """
         score = cast.get_first_actor("scores")
         # food = cast.get_first_actor("foods")
-        cycles = cast.get_actors("snakes")
+        cycles = cast.get_actors("cycles")
 
         red_cycle = cycles[0]
         blue_cycle = cycles[1]

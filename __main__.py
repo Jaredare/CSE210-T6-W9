@@ -1,4 +1,5 @@
-import constants
+import game.shared.constants as constants
+# from game.shared.constants import constants as Constants
 
 from game.casting.cast import Cast
 from game.casting.food import Food
@@ -27,8 +28,10 @@ def main():
 
     cycle_one = Cycle()
     cycle_two = Cycle()
-    cycle_one.change_color(constants.RED)
-    cycle_two.change_color(constants.BLUE)
+
+    cycle_one.prepare_body(constants.RED)
+    cycle_two.prepare_body(constants.BLUE)
+
     cast.add_actor("cycles", cycle_one)
     cast.add_actor("cycles", cycle_two)
     

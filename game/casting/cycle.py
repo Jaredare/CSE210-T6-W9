@@ -1,4 +1,5 @@
-import constants
+# from constants import Constants
+from game.shared import constants as constants
 from game.casting.actor import Actor
 from game.shared.point import Point
 
@@ -15,8 +16,8 @@ class Cycle(Actor):
     def __init__(self):
         super().__init__()
         self._segments = []
-        self._prepare_body()
-        self._cycle_color = constants.YELLOW
+        # self._prepare_body()
+        # self._cycle_color = constants.YELLOW
 
     def get_segments(self):
         return self._segments
@@ -36,7 +37,7 @@ class Cycle(Actor):
         return self._segments[0]
 
     def grow_tail(self, number_of_segments):
-        for i in range(number_of_segments):
+        for _ in range(number_of_segments):
             tail = self._segments[-1]
             velocity = tail.get_velocity()
             offset = velocity.reverse()
@@ -52,25 +53,29 @@ class Cycle(Actor):
     def turn_head(self, velocity):
         self._segments[0].set_velocity(velocity)
     
-    def _prepare_body(self):
+    def prepare_body(self, color):
+        if color == constants.RED:
+            x = int(constants.MAX_X / 2 - 10 * constants.CELL_SIZE)
+            y = int(constants.MAX_Y / 2)
 
-        if self._cycle_color == constants.RED:
-            x = int(constants.MAX_X / 2)
-            y = int(constants.MAX_Y / 2 + 10)
 
-        if self._cycle_color == constants.BLUE:
-            x = int(constants.MAX_X / 2)
-            y = int(constants.MAX_Y / 2 - 10)
+        elif color == constants.BLUE:
+            x = int(constants.MAX_X / 2 + 10 * constants.CELL_SIZE)
+            y = int(constants.MAX_Y / 2)
 
         else:
             x = int(constants.MAX_X / 2)
             y = int(constants.MAX_Y / 2)
+            print("Something went wrong in finding the color of the cycle. game->casting->cycle.py->prepare_body")
 
         for i in range(constants.SNAKE_LENGTH):
-            position = Point(x - i * constants.CELL_SIZE, y)
-            velocity = Point(1 * constants.CELL_SIZE, 0)
+
+
+            position = Point(x, y + i * constants.CELL_SIZE)
+            velocity = Point(0, -1 * constants.CELL_SIZE)
             text = "8" if i == 0 else "#"
-            color = self._cycle_color
+
+            
             
             segment = Actor()
             segment.set_position(position)
@@ -78,9 +83,11 @@ class Cycle(Actor):
             segment.set_text(text)
             segment.set_color(color)
             self._segments.append(segment)
+        
 
-    def change_color(self, color):
-        self._cycle_color = color
 
-        for i in self._segments:
-            i.set_color(self._cycle_color)
+    # def change_color(self, color):
+    #     self._cycle_color = color
+
+    #     for i in self._segments:
+    #         i.set_color(self._cycle_color)

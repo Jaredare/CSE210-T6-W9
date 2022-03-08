@@ -43,7 +43,7 @@ Things we need to do:
             We need to enable collision for the second cycle. (WIP, maybe? I couldn't test it, but in theory it works. -L)
             We need to change the color for the second cycle on game over. (WIP) 
                 What we could do for this is keep the winner colored, and the loser white.  
-            We need to change the starting position of the second cycle to the other side of the screen.
+            We need to change the starting position of the second cycle to the other side of the screen. (Finished v0.008)
 
             It would be good to have the cycles start going up and or down. 
 
@@ -54,3 +54,5 @@ Things we need to do:
         
 
         We currently have 18/16 classes. (v0.005)
+
+        Known errors:

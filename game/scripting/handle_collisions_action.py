@@ -1,4 +1,4 @@
-import constants
+import game.shared.constants as constants
 from game.casting.actor import Actor
 from game.scripting.action import Action
 from game.shared.point import Point
@@ -93,9 +93,9 @@ class HandleCollisionsAction(Action):
         Args:
             cast (Cast): The cast of Actors in the game.
         """
-        # if self._is_game_over:
-        #     snake = cast.get_first_actor("snakes")
-        #     segments = snake.get_segments()
+        # if self._is_game_over == True:
+        #     cycle = cast.get_first_actor("cycles")
+        #     segments = cycle.get_segments()
         #     # food = cast.get_first_actor("foods")
 
         #     x = int(constants.MAX_X / 2)
