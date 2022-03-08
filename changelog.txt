@@ -6,3 +6,4 @@
         and coded what was supposed to be a second snake as seen in __main__.py line 29 and 
         control_actors_actions.py lines 34-37 and 58-75.
 0.006: Added visualization for the second cycle. 
+0.007: Added differing colors for both cycles. Worked on adding collision for the cycles. May or may not work.

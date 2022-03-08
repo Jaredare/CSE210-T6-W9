@@ -17,6 +17,7 @@ class HandleCollisionsAction(Action):
     def __init__(self):
         """Constructs a new HandleCollisionsAction."""
         self._is_game_over = False
+        self._red_wins = "who cares"
 
     def execute(self, cast, script):
         """Executes the handle collisions action.
@@ -53,13 +54,38 @@ class HandleCollisionsAction(Action):
         Args:
             cast (Cast): The cast of Actors in the game.
         """
-        snake = cast.get_first_actor("snakes")
-        head = snake.get_segments()[0]
-        segments = snake.get_segments()[1:]
         
-        for segment in segments:
-            if head.get_position().equals(segment.get_position()):
+        cycles = cast.get_actors("cycles")
+
+        cycle1 = cycles[0]
+        cycle2 = cycles[1]
+
+        head1 = cycle1.get_segments()[0]
+        segment1 = cycle1.get_segments()[1:]
+
+        head2 = cycle2.get_segments()[0]
+        segment2 = cycle2.get_segments()[1:]
+
+        for section1 in segment1: 
+            if head1.get_position().equals(section1.get_position()): 
                 self._is_game_over = True
+            if head2.get_position().equals(section1.get_position()): 
+                self._is_game_over = True
+
+        for section2 in segment2:
+            if head1.get_position().equals(section2.get_position()): 
+                self._is_game_over = True
+            if head2.get_position().equals(section2.get_position()): 
+                self._is_game_over = True
+
+
+        # snake = cast.get_first_actor("snakes")
+        # head = snake.get_segments()[0]
+        # segments = snake.get_segments()[1:]
+        
+        # for segment in segments:
+        #     if head.get_position().equals(segment.get_position()):
+        #         self._is_game_over = True
         
     def _handle_game_over(self, cast):
         """Shows the 'game over' message and turns the snake and food white if the game is over.
@@ -67,20 +93,20 @@ class HandleCollisionsAction(Action):
         Args:
             cast (Cast): The cast of Actors in the game.
         """
-        if self._is_game_over:
-            snake = cast.get_first_actor("snakes")
-            segments = snake.get_segments()
-            # food = cast.get_first_actor("foods")
+        # if self._is_game_over:
+        #     snake = cast.get_first_actor("snakes")
+        #     segments = snake.get_segments()
+        #     # food = cast.get_first_actor("foods")
 
-            x = int(constants.MAX_X / 2)
-            y = int(constants.MAX_Y / 2)
-            position = Point(x, y)
+        #     x = int(constants.MAX_X / 2)
+        #     y = int(constants.MAX_Y / 2)
+        #     position = Point(x, y)
 
-            message = Actor()
-            message.set_text("Game Over!")
-            message.set_position(position)
-            cast.add_actor("messages", message)
+        #     message = Actor()
+        #     message.set_text("Game Over!")
+        #     message.set_position(position)
+        #     cast.add_actor("messages", message)
 
-            for segment in segments:
-                segment.set_color(constants.WHITE)
-            # food.set_color(constants.WHITE)
+        #     for segment in segments:
+        #         segment.set_color(constants.WHITE)
+        #     # food.set_color(constants.WHITE)

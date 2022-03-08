@@ -3,11 +3,11 @@ from game.casting.actor import Actor
 from game.shared.point import Point
 
 
-class Snake(Actor):
+class Cycle(Actor):
     """
-    A long limbless reptile.
+    A bike with a light trail behind it
     
-    The responsibility of Snake is to move itself.
+    The responsibility of Cycle is to move itself.
 
     Attributes:
         _points (int): The number of points the food is worth.
@@ -16,6 +16,7 @@ class Snake(Actor):
         super().__init__()
         self._segments = []
         self._prepare_body()
+        self._cycle_color = constants.YELLOW
 
     def get_segments(self):
         return self._segments
@@ -45,21 +46,31 @@ class Snake(Actor):
             segment.set_position(position)
             segment.set_velocity(velocity)
             segment.set_text("#")
-            segment.set_color(constants.GREEN)
+            segment.set_color(self._cycle_color)
             self._segments.append(segment)
 
     def turn_head(self, velocity):
         self._segments[0].set_velocity(velocity)
     
     def _prepare_body(self):
-        x = int(constants.MAX_X / 2)
-        y = int(constants.MAX_Y / 2)
+
+        if self._cycle_color == constants.RED:
+            x = int(constants.MAX_X / 2)
+            y = int(constants.MAX_Y / 2 + 10)
+
+        if self._cycle_color == constants.BLUE:
+            x = int(constants.MAX_X / 2)
+            y = int(constants.MAX_Y / 2 - 10)
+
+        else:
+            x = int(constants.MAX_X / 2)
+            y = int(constants.MAX_Y / 2)
 
         for i in range(constants.SNAKE_LENGTH):
             position = Point(x - i * constants.CELL_SIZE, y)
             velocity = Point(1 * constants.CELL_SIZE, 0)
             text = "8" if i == 0 else "#"
-            color = constants.YELLOW if i == 0 else constants.GREEN
+            color = self._cycle_color
             
             segment = Actor()
             segment.set_position(position)
@@ -67,3 +78,9 @@ class Snake(Actor):
             segment.set_text(text)
             segment.set_color(color)
             self._segments.append(segment)
+
+    def change_color(self, color):
+        self._cycle_color = color
+
+        for i in self._segments:
+            i.set_color(self._cycle_color)

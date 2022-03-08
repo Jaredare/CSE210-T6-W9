@@ -31,11 +31,8 @@ class ControlActorsAction(Action):
             script (Script): The script of Actions in the game.
         """
 
-        cycles = cast.get_actors("snakes")
-
-        red_cycle = cycles[0]
-        blue_cycle = cycles[1]
-
+        cycles = cast.get_actors("cycles")
+        
         # left
         if self._keyboard_service.is_key_down('a'):
             self._red_direction = Point(-constants.CELL_SIZE, 0)
@@ -53,6 +50,7 @@ class ControlActorsAction(Action):
             self._red_direction = Point(0, constants.CELL_SIZE)
         
         # red_cycle = cast.get_first_actor("red cycle")
+        red_cycle = cycles[0]
         red_cycle.turn_head(self._red_direction)
 
         # left
@@ -72,4 +70,5 @@ class ControlActorsAction(Action):
             self._blue_direction = Point(0, constants.CELL_SIZE)
         
         # blue_cycle = cast.get_first_actor("blue cycle")
+        blue_cycle = cycles[1]
         blue_cycle.turn_head(self._blue_direction)

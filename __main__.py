@@ -3,7 +3,7 @@ import constants
 from game.casting.cast import Cast
 from game.casting.food import Food
 from game.casting.score import Score
-from game.casting.snake import Snake
+from game.casting.cycle import Cycle
 from game.scripting.script import Script
 from game.scripting.control_actors_action import ControlActorsAction
 from game.scripting.move_actors_action import MoveActorsAction
@@ -25,8 +25,13 @@ def main():
     # cast.add_actor("red cycle", Snake())
     # cast.add_actor("blue cycle", Snake())
 
-    cast.add_actor("snakes", Snake())
-    cast.add_actor("snakes", Snake())
+    cycle_one = Cycle()
+    cycle_two = Cycle()
+    cycle_one.change_color(constants.RED)
+    cycle_two.change_color(constants.BLUE)
+    cast.add_actor("cycles", cycle_one)
+    cast.add_actor("cycles", cycle_two)
+    
     cast.add_actor("scores", Score())
    
     # start the game
