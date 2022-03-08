@@ -8,3 +8,4 @@
 0.006: Added visualization for the second cycle. 
 0.007: Added differing colors for both cycles. Worked on adding collision for the cycles. May or may not work.
 0.008: Fixed an issue in the positioning of the cycles and the way that constants.py was being handled. 
+0.009: Added proper collision and cycle growth. Cycle growth needs refining, but functionality exists. 

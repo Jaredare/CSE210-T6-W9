@@ -54,5 +54,6 @@ Things we need to do:
         
 
         We currently have 18/16 classes. (v0.005)
+        We're no longer using Food.py, which means that we're down to 17 classes. - Jared
 
         Known errors:

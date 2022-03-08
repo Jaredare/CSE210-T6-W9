@@ -1,4 +1,4 @@
-import game.shared.constants as constants
+from game.shared import constants as constants
 from game.casting.actor import Actor
 from game.scripting.action import Action
 from game.shared.point import Point
@@ -69,14 +69,18 @@ class HandleCollisionsAction(Action):
         for section1 in segment1: 
             if head1.get_position().equals(section1.get_position()): 
                 self._is_game_over = True
+                self._red_wins = False
             if head2.get_position().equals(section1.get_position()): 
                 self._is_game_over = True
+                self._red_wins = True
 
         for section2 in segment2:
             if head1.get_position().equals(section2.get_position()): 
                 self._is_game_over = True
+                self._red_wins = False
             if head2.get_position().equals(section2.get_position()): 
                 self._is_game_over = True
+                self._red_wins = True
 
 
         # snake = cast.get_first_actor("snakes")
@@ -87,26 +91,41 @@ class HandleCollisionsAction(Action):
         #     if head.get_position().equals(segment.get_position()):
         #         self._is_game_over = True
         
+        
     def _handle_game_over(self, cast):
         """Shows the 'game over' message and turns the snake and food white if the game is over.
         
         Args:
             cast (Cast): The cast of Actors in the game.
         """
-        # if self._is_game_over == True:
-        #     cycle = cast.get_first_actor("cycles")
-        #     segments = cycle.get_segments()
-        #     # food = cast.get_first_actor("foods")
+        if self._is_game_over == True:
+            
+            cycles = cast.get_actors("cycles")
 
-        #     x = int(constants.MAX_X / 2)
-        #     y = int(constants.MAX_Y / 2)
-        #     position = Point(x, y)
+            cycle1 = cycles[0]
+            cycle2 = cycles[1]
 
-        #     message = Actor()
-        #     message.set_text("Game Over!")
-        #     message.set_position(position)
-        #     cast.add_actor("messages", message)
+            if self._red_wins == True:
+                player_color = "Red"
+                cycle = cycles[1]
+                
+            else:
+                player_color = "Blue"
+                cycle = cycles[0]
 
-        #     for segment in segments:
-        #         segment.set_color(constants.WHITE)
-        #     # food.set_color(constants.WHITE)
+            
+            segments = cycle.get_segments()
+            # food = cast.get_first_actor("foods")
+
+            x = int(constants.MAX_X / 2)
+            y = int(constants.MAX_Y / 2)
+            position = Point(x, y)
+
+            message = Actor()
+            message.set_text(f"{player_color} wins!")
+            message.set_position(position)
+            cast.add_actor("messages", message)
+
+            for segment in segments:
+                segment.set_color(constants.WHITE)
+            # food.set_color(constants.WHITE)

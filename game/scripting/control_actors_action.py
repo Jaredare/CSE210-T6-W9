@@ -1,4 +1,4 @@
-import game.shared.constants as constants
+from game.shared import constants as constants
 from game.scripting.action import Action
 from game.shared.point import Point
 
