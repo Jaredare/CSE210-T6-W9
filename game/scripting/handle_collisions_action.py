@@ -102,8 +102,8 @@ class HandleCollisionsAction(Action):
             
             cycles = cast.get_actors("cycles")
 
-            cycle1 = cycles[0]
-            cycle2 = cycles[1]
+            # cycle1 = cycles[0]
+            # cycle2 = cycles[1]
 
             if self._red_wins == True:
                 player_color = "Red"
@@ -115,7 +115,6 @@ class HandleCollisionsAction(Action):
 
             
             segments = cycle.get_segments()
-            # food = cast.get_first_actor("foods")
 
             x = int(constants.MAX_X / 2)
             y = int(constants.MAX_Y / 2)
