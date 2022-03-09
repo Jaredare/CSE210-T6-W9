@@ -1,6 +1,6 @@
 from game.shared.color import Color
 
-
+# Just a list of constants for reference elsewhere, nothing to see here.
 COLUMNS = 40
 ROWS = 20
 CELL_SIZE = 15

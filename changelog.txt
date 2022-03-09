@@ -26,3 +26,5 @@
 0.012: Removed constants.py from the main part of the program. We had moved it into shared several versions back, but had never removed the original version.
 
 0.013: Added logic to handle_growth_action.py to limit cycle growth based on whether the game had ended or not.
+
+0.014: Added comments to a number of things, edited a few comments and updated plan.txt
