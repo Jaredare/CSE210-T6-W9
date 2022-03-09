@@ -28,3 +28,5 @@
 0.013: Added logic to handle_growth_action.py to limit cycle growth based on whether the game had ended or not.
 
 0.014: Added comments to a number of things, edited a few comments and updated plan.txt
+
+0.015: Removed the old snake game that was renamed to "KEEP CLOSED"
