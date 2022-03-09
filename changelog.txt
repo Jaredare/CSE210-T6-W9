@@ -12,3 +12,4 @@
 0.010: We tried our absolute best to make the scores. The position refuses to work, and I don't know why. We've been on this for two hours. Just look at it please, we're both tired. 
 0.011: Got the position of the score to work by changing score.set_position to self.set_position in score.py, 
         and changed the locations of the scores to be in the top left and top right corners.
+0.012: Removed constants.py from the main part of the program. We had moved it into shared several versions back, but had never removed the original version.
