@@ -45,10 +45,10 @@ Things we need to do:
                 What we could do for this is keep the winner colored, and the loser white.  
             We need to change the starting position of the second cycle to the other side of the screen. (Finished v0.008)
 
-            It would be good to have the cycles start going up and or down. 
+            It would be good to have the cycles start going up and or down. (Finished. v0.008?)
 
-        We'll need to make the cycles grow according to time or distance rather than by collecting fruit. (medium)
-        We'll need to make sure that a player can die to their opponent's tail. (hopefully easy)
+        We'll need to make the cycles grow according to time or distance rather than by collecting fruit. (Added v0.009)
+        We'll need to make sure that a player can die to their opponent's tail. (Added v0.009)
         Game over is already incorporated. The base cycle turns white. The second cycle doesn't turn white. (Mostly done)
 
         
@@ -57,3 +57,5 @@ Things we need to do:
         We're no longer using Food.py, which means that we're down to 17 classes. - Jared
 
         Known errors:
+        The cycles keep growing after death
+        Maybe not an error, but blue has writing priority over red, which is a bit interesting.

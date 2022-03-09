@@ -49,7 +49,6 @@ class ControlActorsAction(Action):
         if self._keyboard_service.is_key_down('s'):
             self._red_direction = Point(0, constants.CELL_SIZE)
         
-        # red_cycle = cast.get_first_actor("red cycle")
         red_cycle = cycles[0]
         red_cycle.turn_head(self._red_direction)
 
@@ -69,6 +68,5 @@ class ControlActorsAction(Action):
         if self._keyboard_service.is_key_down('k'):
             self._blue_direction = Point(0, constants.CELL_SIZE)
         
-        # blue_cycle = cast.get_first_actor("blue cycle")
         blue_cycle = cycles[1]
         blue_cycle.turn_head(self._blue_direction)
