@@ -24,7 +24,7 @@ class HandleGrowthAction(Action):
         self.game_timer += 1
 
         game_over = cast.get_first_actor("messages")
-        print(game_over)
+
         
         # The growth of the cycles is determined by this value. 1 = every frame, 2 = every other frame, 15 = every second, 30 = every other second, etc.
         #                    V
