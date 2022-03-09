@@ -29,15 +29,22 @@ def main():
 
     cycle_one = Cycle()
     cycle_two = Cycle()
-
+    
+    score_one = Score("One")
+    score_two = Score("Two")
+    
     cycle_one.prepare_body(constants.RED)
     cycle_two.prepare_body(constants.BLUE)
 
     cast.add_actor("cycles", cycle_one)
     cast.add_actor("cycles", cycle_two)
     
-    cast.add_actor("scores", Score())
-   
+    score_one.prepare_score("One")
+    score_two.prepare_score("Two")
+    
+    cast.add_actor("scores", score_one)
+    cast.add_actor("scores", score_two)
+    
     # start the game
     keyboard_service = KeyboardService()
     video_service = VideoService()
@@ -55,8 +62,6 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
 
 
 # # cast.add_actor("cycles", Snake())

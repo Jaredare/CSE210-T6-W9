@@ -67,7 +67,6 @@ class Cycle(Actor):
             x = int(constants.MAX_X / 2 - 10 * constants.CELL_SIZE)
             y = int(constants.MAX_Y / 2)
 
-
         elif color == constants.BLUE:
             x = int(constants.MAX_X / 2 + 10 * constants.CELL_SIZE)
             y = int(constants.MAX_Y / 2)
@@ -78,14 +77,10 @@ class Cycle(Actor):
             print("Something went wrong in finding the color of the cycle. game->casting->cycle.py->prepare_body")
 
         for i in range(constants.SNAKE_LENGTH):
-
-
             position = Point(x, y + i * constants.CELL_SIZE)
             velocity = Point(0, -1 * constants.CELL_SIZE)
             text = "8" if i == 0 else "#"
 
-            
-            
             segment = Actor()
             segment.set_position(position)
             segment.set_velocity(velocity)

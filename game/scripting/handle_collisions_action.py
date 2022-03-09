@@ -122,7 +122,7 @@ class HandleCollisionsAction(Action):
             position = Point(x, y)
 
             message = Actor()
-            message.set_text(f"{player_color} wins!")
+            message.set_text(f"{player_color} wins! Game over.")
             message.set_position(position)
             cast.add_actor("messages", message)
 

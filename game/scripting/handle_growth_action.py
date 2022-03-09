@@ -9,7 +9,7 @@ class HandleGrowthAction(Action):
     def execute(self, cast, script):
         self.game_timer += 1
         
-        if self.game_timer % 2 == 0:
+        if self.game_timer % 1 == 0:
             cycles = cast.get_actors("cycles")
 
             cycle1 = cycles[0]
