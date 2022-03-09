@@ -38,7 +38,7 @@ class Score(Actor):
         # score1 = scores[0]
         # score2 = scores[1]
 
-        print("Preparing score")
+    
 
         if score == "One":
             """This is for the first player's score. """
